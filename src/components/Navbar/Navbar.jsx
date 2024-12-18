@@ -20,7 +20,7 @@ function Navbar() {
         <div className={`z-10 transition-all duration-500 ${
             isShowBurger ? 'opacity-0 -translate-x-full invisible'
             : 'opacity-100 -translate-x-0 visible'
-            } w-1/4 h-full bg-pink-800 bg-opacity-95 fixed text-white`}>
+            } w-1/4 h-full bg-pink-800 bg-opacity-95 fixed text-white max-[600px]:w-1/2`}>
             <div className='w-full h-14 bg-white text-pink-950 flex justify-center items-center mx-auto'>
                 <IoCloseSharp className='text-xl font-extrabold'
                 onClick={() => setIsShowBurger(true)}/>

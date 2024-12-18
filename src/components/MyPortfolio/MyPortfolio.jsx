@@ -29,7 +29,7 @@ function MyPortfolio() {
         
         <div className="grid gap-4 px-6">
             <div className={`flex justify-around p-4 mb-4 ${isAnimating ? 'animate-bounce' : ''}`}>
-                <div className="w-auto h-[300px] mr-4">
+                <div className="w-auto lg:h-[300px] mr-4">
                     <img className="h-full max-w-full rounded-lg" src={activePortfolio.image} alt="" />
                 </div>
                 <div className="max-w-[450px] h-[300px] text-white overflow-hidden">
@@ -46,8 +46,8 @@ function MyPortfolio() {
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 justify-items-center">
                 {datas.map((value) => (
-                    <div key={value.id} className="relative group h-[250px]">
-                        <img className="max-w-full rounded-lg h-[250px]" src={value.image} alt="" />
+                    <div key={value.id} className="relative group h-full">
+                        <img className="max-w-full rounded-lg h-full object-cover" src={value.image} alt="" />
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 transition-opacity duration-300">
                             <button className="bg-white p-2 rounded-full shadow-lg text-pink-800" 
                                 onClick={()=>handleClick(value)}>
