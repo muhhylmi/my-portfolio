@@ -43,7 +43,7 @@ function App() {
     <>
       <CursorProvider>
         <MaskCursor />
-        <div className="relative bg-page-bg bg-blend-darken bg-center bg-no-repeat bg-cover min-h-screen before:absolute before:inset-0 before:bg-black before:opacity-50">
+        <div className="relative bg-fixed bg-page-bg bg-blend-darken bg-center bg-no-repeat bg-cover min-h-screen before:absolute before:inset-0 before:bg-black before:opacity-50">
           <ParticleBackground />
           <Navbar />
           <section ref={aboutRef}>
