@@ -1,9 +1,14 @@
 import profileImage from "../../assets/images/muhhylmi.jpg";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { useNav } from "../NavProvider";
+import { useCursor } from "../CursorContext";
 
 function NavbarMenu() {
   const { activeNav } = useNav();
+  const { setIsHovering } = useCursor();
+
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
   return (
     <div>
       <div className="mt-10 flex flex-col items-center">
@@ -12,10 +17,20 @@ function NavbarMenu() {
           alt="image random"
           className="w-32 h-32 rounded-full shadow-lg max-lg:w-24 max-lg:h-24"
         />
-        <h2 className="text-xl mt-4 font-bold lg:mt-8 lg:text-3xl">
+        <h2
+          className="text-xl mt-4 font-bold lg:mt-8 lg:text-3xl"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
           Muh Hylmi
         </h2>
-        <h3 className="italic mt-2 text-sm lg:text-base">Backend Developer</h3>
+        <h3
+          className="italic mt-2 text-sm lg:text-base"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
+          Backend Developer
+        </h3>
       </div>
       <div className="flex justify-center font-bold flex-col mt-6 lg:mt-10">
         <a href="#about-me">
@@ -23,12 +38,16 @@ function NavbarMenu() {
             className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900 ${
               activeNav == "about-me" ? "text-pink-800 bg-white" : "text-white"
             }`}
+            onMouseEnter={textEnter}
+            onMouseLeave={texLeave}
           >
             About Me
           </div>
         </a>
         <a href="#work-experience">
           <div
+            onMouseEnter={textEnter}
+            onMouseLeave={texLeave}
             className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center cursor-pointer hover:bg-white hover:text-pink-900 ${
               activeNav == "work-experience"
                 ? "text-pink-800 bg-white"
@@ -40,6 +59,8 @@ function NavbarMenu() {
         </a>
         <a href="#my-skills">
           <div
+            onMouseEnter={textEnter}
+            onMouseLeave={texLeave}
             className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900  ${
               activeNav == "my-skills" ? "text-pink-800 bg-white" : "text-white"
             }`}
@@ -49,6 +70,8 @@ function NavbarMenu() {
         </a>
         <a href="#portfolio">
           <div
+            onMouseEnter={textEnter}
+            onMouseLeave={texLeave}
             className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900  ${
               activeNav == "portfolio" ? "text-pink-800 bg-white" : "text-white"
             }`}
@@ -61,6 +84,8 @@ function NavbarMenu() {
             className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center cursor-pointer hover:bg-white hover:text-pink-900  ${
               activeNav == "contact" ? "text-pink-800 bg-white" : "text-white"
             }`}
+            onMouseEnter={textEnter}
+            onMouseLeave={texLeave}
           >
             Contact Me
           </div>

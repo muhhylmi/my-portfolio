@@ -2,6 +2,7 @@ import { FaEye } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import datas from "./content";
 import { useState } from "react";
+import { useCursor } from "../CursorContext";
 
 function MyPortfolio() {
   const { ref, inView } = useInView({
@@ -14,6 +15,9 @@ function MyPortfolio() {
     setIsAnimating(true);
     setTimeout(() => setIsAnimating(false), 1500);
   };
+  const { setIsHovering } = useCursor();
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
 
   return (
     <div
@@ -24,9 +28,19 @@ function MyPortfolio() {
       id="portfolio"
     >
       <div className="flex-1 text-white p-10">
-        <h2 className="text-3xl text-center font-bold">My Portfolios</h2>
+        <h2
+          className="text-3xl text-center font-bold"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
+          My Portfolios
+        </h2>
         <div className="border-t-2 border-pink-800 w-12 mx-auto my-5" />
-        <p className="text-center font-normal text-xl">
+        <p
+          className="text-center font-normal text-xl"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
           some of the projects I&apos;ve worked on
         </p>
       </div>
@@ -45,16 +59,30 @@ function MyPortfolio() {
             />
           </div>
           <div className="max-w-[450px] h-[300px] text-white overflow-hidden">
-            <h3 className="text-2xl font-bold">
+            <h3
+              className="text-2xl font-bold"
+              onMouseEnter={textEnter}
+              onMouseLeave={texLeave}
+            >
               Project Name: {activePortfolio.name}
             </h3>
-            <h4 className="mb-4 mt-2 font-semibold">
+            <h4
+              className="mb-4 mt-2 font-semibold"
+              onMouseEnter={textEnter}
+              onMouseLeave={texLeave}
+            >
               Tools / Stack : {activePortfolio.tools}
             </h4>
             <ul className="list-disc pl-5 text-white">
               {activePortfolio.description.map((desc, idx) => (
                 <li key={idx} className="pl-2">
-                  <span className="block">{desc}</span>
+                  <span
+                    className="block"
+                    onMouseEnter={textEnter}
+                    onMouseLeave={texLeave}
+                  >
+                    {desc}
+                  </span>
                 </li>
               ))}
             </ul>

@@ -8,6 +8,8 @@ import WorkExperience from "./components/WorkExperience/WorkExperience";
 import { useNav } from "./components/NavProvider";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import MaskCursor from "./components/MaskCursor";
+import { CursorProvider } from "./components/CursorContext";
 
 function App() {
   const { setActiveNav } = useNav();
@@ -39,25 +41,28 @@ function App() {
 
   return (
     <>
-      <div className="relative bg-page-bg bg-blend-darken bg-center bg-no-repeat bg-cover min-h-screen before:absolute before:inset-0 before:bg-black before:opacity-50">
-        <ParticleBackground />
-        <Navbar />
-        <section ref={aboutRef}>
-          <AboutMe />
-        </section>
-        <section ref={workRef}>
-          <WorkExperience />
-        </section>
-        <section ref={skillRef}>
-          <MySkills />
-        </section>
-        <section ref={portfolioRef}>
-          <MyPortfolio />
-        </section>
-        <section ref={contactRef}>
-          <ContactMe />
-        </section>
-      </div>
+      <CursorProvider>
+        <MaskCursor />
+        <div className="relative bg-page-bg bg-blend-darken bg-center bg-no-repeat bg-cover min-h-screen before:absolute before:inset-0 before:bg-black before:opacity-50">
+          <ParticleBackground />
+          <Navbar />
+          <section ref={aboutRef}>
+            <AboutMe />
+          </section>
+          <section ref={workRef}>
+            <WorkExperience />
+          </section>
+          <section ref={skillRef}>
+            <MySkills />
+          </section>
+          <section ref={portfolioRef}>
+            <MyPortfolio />
+          </section>
+          <section ref={contactRef}>
+            <ContactMe />
+          </section>
+        </div>
+      </CursorProvider>
     </>
   );
 }

@@ -1,11 +1,15 @@
 import { useInView } from "react-intersection-observer";
 import data from "./content";
+import { useCursor } from "../CursorContext";
 
 function MySkills() {
   const { ref, inView } = useInView({
     threshold: 0.2,
   });
 
+  const { setIsHovering } = useCursor();
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
   return (
     <div
       ref={ref}
@@ -15,7 +19,13 @@ function MySkills() {
       id="my-skills"
     >
       <div className="flex-col mt-16 text-white">
-        <h2 className="text-3xl text-center font-bold">My Skills</h2>
+        <h2
+          className="text-3xl text-center font-bold"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
+          My Skills
+        </h2>
         <div className="border-t-2 border-pink-800 w-12 mx-auto my-5" />
       </div>
       <div className="flex p-10 flex-wrap justify-center">
@@ -24,10 +34,18 @@ function MySkills() {
             key={index}
             className="w-[350px] h-[250px] shadow-lg border border-pink-800 m-3 p-4"
           >
-            <h2 className="my-4 font-bold text-center">{skill.tag}</h2>
+            <h2
+              className="my-4 font-bold text-center"
+              onMouseEnter={textEnter}
+              onMouseLeave={texLeave}
+            >
+              {skill.tag}
+            </h2>
             <div className="flex flex-wrap">
               {skill.skills.map((val, index) => (
                 <div
+                  onMouseEnter={textEnter}
+                  onMouseLeave={texLeave}
                   key={index}
                   className={`flex m-2 text-white font-bold py-1 px-2 text-lg rounded-full justify-center items-center ${val.color}`}
                 >

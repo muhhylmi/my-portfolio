@@ -1,3 +1,4 @@
+import { useCursor } from "../CursorContext";
 import data from "./content";
 import { useInView } from "react-intersection-observer";
 
@@ -5,6 +6,10 @@ function WorkTimeLine() {
   const { ref, inView } = useInView({
     threshold: 0.1, // Komponen akan aktif saat 20% dari elemen terlihat
   });
+  const { setIsHovering } = useCursor();
+
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
   return (
     <div
       ref={ref}
@@ -24,10 +29,18 @@ function WorkTimeLine() {
                 />
               </span>
               <div className="p-4 bg-black bg-opacity-10 rounded-l-3xl shadow">
-                <h5 className="text-xl font-bold tracking-tight text-white">
+                <h5
+                  onMouseEnter={textEnter}
+                  onMouseLeave={texLeave}
+                  className="text-xl font-bold tracking-tight text-white"
+                >
                   {company.companyName}
                 </h5>
-                <h5 className="mb-2 text-lg font-semibold tracking-tight text-white ">
+                <h5
+                  onMouseEnter={textEnter}
+                  onMouseLeave={texLeave}
+                  className="mb-2 text-lg font-semibold tracking-tight text-white "
+                >
                   {company.roleName}{" "}
                   <span className="text-sm italic text-pink-600">
                     ({company.year})
@@ -36,7 +49,13 @@ function WorkTimeLine() {
                 {company.tasks.map((task, idx) => (
                   <ul key={idx} className="list-disc pl-5 text-white">
                     <li className="pl-2">
-                      <span className="block">{task}</span>
+                      <span
+                        onMouseEnter={textEnter}
+                        onMouseLeave={texLeave}
+                        className="block"
+                      >
+                        {task}
+                      </span>
                     </li>
                   </ul>
                 ))}

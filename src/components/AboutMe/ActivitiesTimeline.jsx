@@ -1,6 +1,11 @@
+import { useCursor } from "../CursorContext";
 import data from "./content";
 
 const ActivitiesTimeline = () => {
+  const { setIsHovering } = useCursor();
+
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
   return (
     <div>
       <ol className="items-center sm:flex mt-6">
@@ -13,13 +18,25 @@ const ActivitiesTimeline = () => {
               <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
             </div>
             <div className="mt-3 sm:pe-8">
-              <h3 className="text-lg font-semibold text-white">
+              <h3
+                className="text-lg font-semibold text-white"
+                onMouseEnter={textEnter}
+                onMouseLeave={texLeave}
+              >
                 {school.schoolName}
               </h3>
-              <time className="block mt-1 mb-2 text-sm font-semibold leading-none text-pink-600 italic">
+              <time
+                onMouseEnter={textEnter}
+                onMouseLeave={texLeave}
+                className="block mt-1 mb-2 text-sm font-semibold leading-none text-pink-600 italic"
+              >
                 {school.year}
               </time>
-              <p className="text-base font-normal text-white">
+              <p
+                onMouseEnter={textEnter}
+                onMouseLeave={texLeave}
+                className="text-base font-normal text-white"
+              >
                 {school.description}
               </p>
             </div>

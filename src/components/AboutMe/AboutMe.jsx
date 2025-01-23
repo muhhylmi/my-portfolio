@@ -1,3 +1,4 @@
+import { useCursor } from "../CursorContext";
 import ActivitiesTimeline from "./ActivitiesTimeline";
 import { useInView } from "react-intersection-observer";
 
@@ -5,6 +6,10 @@ function AboutMe() {
   const { ref, inView } = useInView({
     threshold: 0.2,
   });
+  const { setIsHovering } = useCursor();
+
+  const textEnter = () => setIsHovering("text");
+  const texLeave = () => setIsHovering("default");
 
   return (
     <div
@@ -15,9 +20,19 @@ function AboutMe() {
       id="about-me"
     >
       <div className="flex-1 text-white p-10">
-        <h2 className="text-3xl text-center font-bold">About Me</h2>
+        <h2
+          className="text-3xl text-center font-bold"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
+          About Me
+        </h2>
         <div className="border-t-2 border-pink-800 w-12 mx-auto my-5" />
-        <p className="text-center font-normal text-xl">
+        <p
+          className="text-center font-normal text-xl"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
           Backend Developer with 3 years of experience in designing, developing,
           and maintaining software. passionate about IT, with a particular focus
           on data processing. Eager to embrace new challenges, I exhibit a
@@ -28,7 +43,13 @@ function AboutMe() {
         </p>
       </div>
       <div className="flex-col text-white p-10 justify-center">
-        <h2 className="text-3xl text-center font-bold">Educations</h2>
+        <h2
+          className="text-3xl text-center font-bold"
+          onMouseEnter={textEnter}
+          onMouseLeave={texLeave}
+        >
+          Educations
+        </h2>
         <div className="border-t-2 border-pink-800 w-12 mx-auto my-5" />
         <div className="flex justify-center">
           <ActivitiesTimeline />
