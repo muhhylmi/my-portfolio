@@ -35,7 +35,7 @@ function NavbarMenu() {
       <div className="flex justify-center font-bold flex-col mt-6 lg:mt-10">
         <a href="#about-me">
           <div
-            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900 ${
+            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center   hover:bg-white hover:text-pink-900 ${
               activeNav == "about-me" ? "text-pink-800 bg-white" : "text-white"
             }`}
             onMouseEnter={textEnter}
@@ -48,7 +48,7 @@ function NavbarMenu() {
           <div
             onMouseEnter={textEnter}
             onMouseLeave={texLeave}
-            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center cursor-pointer hover:bg-white hover:text-pink-900 ${
+            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  hover:bg-white hover:text-pink-900 ${
               activeNav == "work-experience"
                 ? "text-pink-800 bg-white"
                 : "text-white"
@@ -61,7 +61,7 @@ function NavbarMenu() {
           <div
             onMouseEnter={textEnter}
             onMouseLeave={texLeave}
-            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900  ${
+            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center   hover:bg-white hover:text-pink-900  ${
               activeNav == "my-skills" ? "text-pink-800 bg-white" : "text-white"
             }`}
           >
@@ -72,7 +72,7 @@ function NavbarMenu() {
           <div
             onMouseEnter={textEnter}
             onMouseLeave={texLeave}
-            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  cursor-pointer hover:bg-white hover:text-pink-900  ${
+            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center   hover:bg-white hover:text-pink-900  ${
               activeNav == "portfolio" ? "text-pink-800 bg-white" : "text-white"
             }`}
           >
@@ -81,7 +81,7 @@ function NavbarMenu() {
         </a>
         <a href="#contact">
           <div
-            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center cursor-pointer hover:bg-white hover:text-pink-900  ${
+            className={`w-full border-b-2 h-12 lg:h-14 flex justify-center items-center  hover:bg-white hover:text-pink-900  ${
               activeNav == "contact" ? "text-pink-800 bg-white" : "text-white"
             }`}
             onMouseEnter={textEnter}
@@ -97,7 +97,7 @@ function NavbarMenu() {
             <FaLinkedinIn />
           </a>
         </div>
-        <div className="w-10 h-10 bg-pink-950 flex justify-center items-center mr-3 hover:text-pink-900 hover:bg-white cursor-pointer">
+        <div className="w-10 h-10 bg-pink-950 flex justify-center items-center mr-3 hover:text-pink-900 hover:bg-white ">
           <a href="https://github.com/muhhylmi">
             <FaGithub />
           </a>
